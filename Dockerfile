@@ -30,4 +30,4 @@ RUN yarn global add puppeteer
 
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["google-chrome-unstable --no-sandbox"]
+CMD ["google-chrome-unstable", "--no-sandbox"]
