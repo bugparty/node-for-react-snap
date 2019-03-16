@@ -26,16 +26,8 @@ RUN chmod +x /usr/local/bin/dumb-init
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 # Install puppeteer so it's available in the container.
-RUN yarn add puppeteer \
+RUN yarn global add puppeteer 
 
-# Add user so we don't need --no-sandbox.
-  && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /node_modules
-
-# Run everything after as non-privileged user.
-USER pptruser
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["google-chrome-unstable"]
+CMD ["google-chrome-unstable --no-sandbox"]
