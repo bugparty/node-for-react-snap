@@ -26,7 +26,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 # Install puppeteer so it's available in the container.
-RUN yarn add react react-snap puppeteer \
+RUN yarn add puppeteer \
 
 # Add user so we don't need --no-sandbox.
   && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
